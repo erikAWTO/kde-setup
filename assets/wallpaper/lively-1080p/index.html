@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>MANET wallpaper</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #000; overflow: hidden; }
+  video { width: 100%; height: 100%; object-fit: cover; display: block; }
+</style>
+</head>
+<body>
+<video id="v" src="manet_wallpaper_1080p.mp4" autoplay muted loop playsinline></video>
+<script>
+  // Lively can leave the player stalled, for example after the window resizes. If the clock
+  // has not moved for 5 s while the page is visible, reload the video and play it again.
+  const v = document.getElementById("v");
+  let last = -1;
+  setInterval(() => {
+    if (document.hidden) return;
+    if (v.currentTime === last) {
+      v.load();
+      v.play().catch(() => {});
+    }
+    last = v.currentTime;
+  }, 5000);
+</script>
+</body>
+</html>

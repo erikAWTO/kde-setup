@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# Switch every screen between the animated MANET wallpaper and a still of it.
+# A still image also releases the GPU, which a paused video player does not.
+set -euo pipefail
+
+DIR="${XDG_DATA_HOME:-$HOME/.local/share}/wallpapers/manet"
+
+qdbus6 org.kde.plasmashell /PlasmaShell org.kde.PlasmaShell.evaluateScript "
+var video = 'luisbocanegra.smart.video.wallpaper.reborn';
+var animated = desktops().some(function (d) { return d.wallpaperPlugin == video; });
+desktops().forEach(function (d) {
+    var g = screenGeometry(d.screen);
+    var suffix = g.height > g.width ? '_portrait' : '';
+    if (animated) {
+        d.wallpaperPlugin = 'org.kde.image';
+        d.currentConfigGroup = ['Wallpaper', 'org.kde.image', 'General'];
+        d.writeConfig('Image', 'file://$DIR/manet_still' + suffix + '.jpg');
+        d.writeConfig('FillMode', 2);
+    } else {
+        // the video plugin keeps its own config group, so switching back restores it
+        d.wallpaperPlugin = video;
+    }
+});
+print(animated ? 'still' : 'animated');
+"
