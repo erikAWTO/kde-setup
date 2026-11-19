@@ -1,0 +1,18 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "vinceliuice@hotmail.com",
+                "Name": "Vinceliuice"
+            }
+        ],
+        "Category": "",
+        "Dependencies": [],
+        "Description": "Qogir-black theme for plasma",
+        "EnabledByDefault": true,
+        "Id": "Qogir-black",
+        "License": "GPL 3.0",
+        "Name": "Qogir-black",
+        "Version": "0.1"
+    }
+}

@@ -1,0 +1,38 @@
+<svg width="3" height="1" version="1.0" xmlns="http://www.w3.org/2000/svg">
+ <style id="current-color-scheme" type="text/css">.ColorScheme-Text {
+            color:#212121;
+        }
+        .ColorScheme-Background{
+            color:#f0f0f0;
+        }
+        .ColorScheme-ViewText {
+            color:#212121;
+        }
+        .ColorScheme-ViewBackground{
+            color:#fcfcfc;
+        }
+        .ColorScheme-ViewHover {
+            color:#505050;
+        }
+        .ColorScheme-ViewFocus{
+            color:#505050;
+        }
+        .ColorScheme-ButtonText {
+            color:#212121;
+        }
+        .ColorScheme-ButtonBackground{
+            color:#f0f0f0;
+        }
+        .ColorScheme-ButtonHover {
+            color:#505050;
+        }
+        .ColorScheme-ButtonFocus{
+            color:#505050;
+        }</style>
+ <g id="vertical-line">
+  <rect class="ColorScheme-Text" width="1" height="1" fill="currentColor" fill-opacity=".2"/>
+ </g>
+ <g id="horizontal-line">
+  <rect class="ColorScheme-Text" x="2" width="1" height="1" fill="currentColor" fill-opacity=".2"/>
+ </g>
+</svg>

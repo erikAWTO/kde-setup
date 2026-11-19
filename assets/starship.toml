@@ -1,0 +1,63 @@
+# Agnoster-style powerline prompt in greys, matching kitty and QogirBlack.
+# Git block is mid grey when clean; the status block turns amber when there are changes.
+add_newline = false
+format = """
+[ $username@$hostname ](bg:#1c1c1c fg:#bdbdbd)\
+[](fg:#1c1c1c bg:#3a3a3a)\
+$directory\
+[](fg:#3a3a3a bg:#5e5e5e)\
+$git_branch\
+$git_state\
+$git_status\
+[](fg:#5e5e5e)\
+$python\
+$cmd_duration\
+$line_break$character"""
+
+[username]
+show_always = true
+format = "$user"
+
+[hostname]
+ssh_only = false
+format = "$hostname"
+
+[directory]
+style = "bg:#3a3a3a fg:#e4e4e4"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[git_branch]
+symbol = ""
+style = "bg:#5e5e5e fg:#f0f0f0"
+format = "[ $symbol $branch ]($style)"
+
+[git_state]
+style = "bg:#5e5e5e fg:#f9e2af"
+format = "[$state( $progress_current/$progress_total) ]($style)"
+
+[git_status]
+style = "bg:#f9e2af fg:#1c1c1c"
+format = "([ $all_status$ahead_behind ]($style))"
+modified = "±"
+staged = "+"
+untracked = "?"
+deleted = "✘"
+ahead = "↑${count}"
+behind = "↓${count}"
+diverged = "↕"
+
+[python]
+symbol = " "
+style = "fg:#9a9a9a"
+format = " [$symbol$virtualenv]($style)"
+
+[cmd_duration]
+min_time = 2000
+style = "fg:#6a6a6a"
+format = " [$duration]($style)"
+
+[character]
+success_symbol = "[❯](#bdbdbd)"
+error_symbol = "[❯](#f38ba8)"
